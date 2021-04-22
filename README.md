@@ -10,7 +10,7 @@ Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20t
 
 Once created don't forget to update the:
 - [App ID](buildSrc/src/main/java/Coordinates.kt)
-- AndroidManifest ([here](app/src/main/AndroidManifest.xml) and [here](library-android/src/main/AndroidManifest.xml))
+- AndroidManifest ([here](app/src/main/AndroidManifest.xml))
 - Package of the source files
 
 ## Features 🎨
@@ -38,7 +38,7 @@ This template is also using [**detekt**](https://github.com/detekt/detekt) to an
 
 ## CI ⚙️
 
-This template is using [**GitHub Actions**](https://github.com/cortinico/kotlin-android-template/actions) as CI. You don't need to setup any external service and you should have a running CI once you start using this template.
+This template is using [**GitHub Actions**](https://github.com/ninalofrese/skeleton/actions) as CI. You don't need to setup any external service and you should have a running CI once you start using this template.
 
 There are currently the following workflows available:
 - [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum
