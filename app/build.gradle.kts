@@ -56,8 +56,9 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk7"))
 
-//    implementation(project(":library-android"))
-//    implementation(project(":library-kotlin"))
+    implementation(project(":library:base"))
+    implementation(project(":library:design"))
+    implementation(project(":feature:oi"))
 
     implementation(SupportLibs.HILT)
     "kapt"(SupportLibs.HILT_COMPILER)
