@@ -11,8 +11,10 @@ plugins {
 }
 
 buildscript {
+    val kotlin_version by extra("1.4.32")
     dependencies {
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 

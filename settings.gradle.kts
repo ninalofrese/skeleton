@@ -1,3 +1,4 @@
+include(":api:sample")
 pluginManagement {
     resolutionStrategy {
         eachPlugin {
@@ -20,5 +21,9 @@ pluginManagement {
 rootProject.name = ("skeleton")
 
 include(
-        ":app"
+        ":app",
+        ":library:base",
+        ":library:design",
+        ":api:sample",
+        ":feature:oi"
 )
