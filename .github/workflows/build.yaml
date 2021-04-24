@@ -34,6 +34,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: Run Kotlin Linter
         run: ./gradlew ktlintStagingDebugCheck
 
@@ -48,6 +51,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
