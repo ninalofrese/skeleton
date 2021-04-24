@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":library:base"))
     implementation(project(":library:design"))
     implementation(project(":feature:oi"))
+    implementation(project(":api:sample"))
 
     SupportLibs.deps.forEach { implementation(it) }
     CacheLibs.deps.forEach { implementation(it) }
