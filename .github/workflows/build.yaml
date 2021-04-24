@@ -14,18 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repo
+      - name: checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
 
-      - name: ktlint
-        uses: ScaCap/action-ktlint@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          android: true
-          fail_on_error: true
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Kotlin Linter
+        run: ./gradlew ktlint
 
   unit-test:
     name: Run Unit tests
@@ -38,9 +34,6 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Run Kotlin Linter
-        run: ./gradlew ktlintStagingDebugCheck
 
       - name: Run Unit Tests
         run: ./gradlew testStagingDebugUnitTest
