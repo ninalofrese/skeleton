@@ -24,6 +24,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           android: true
+          fail_on_error: true
 
   unit-test:
     name: Run Unit tests
