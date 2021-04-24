@@ -1,0 +1,76 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  ktlint:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          android: true
+
+  unit-test:
+    name: Run Unit tests
+    runs-on: ubuntu-latest
+    needs: ktlint
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Run Kotlin Linter
+        run: ./gradlew ktlintStagingDebugCheck
+
+      - name: Run Unit Tests
+        run: ./gradlew testStagingDebugUnitTest
+
+  instrumented-test:
+    name: Run Instrumented Tests
+    runs-on: macos-latest
+    needs: ktlint
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+
+  build:
+    name: Run Instrumented Tests
+    runs-on: ubuntu-latest
+    needs: [unit-test, instrumented-test]
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+      steps:
+          - name: Checkout Repo
+            uses: actions/checkout@v2
+              - name: Cache Gradle Files
+                uses: actions/cache@v2
+                with:
+                  path: |
+                    ~/.gradle/caches/
+                    ~/.gradle/wrapper/
+                  key: cache-gradle
+              - name: Run Gradle tasks
+                run: ./gradlew build
+              - name: Stop Gradle
+                run: ./gradlew --stop

@@ -58,7 +58,7 @@ object UiLibs {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEW_MODEL}"
     const val ANDROIDX_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIVEDATA}"
     const val ANDROIDX_CONSTRAINT_LAYOUT =
-        "com.android.support.constraint:constraint-layout:${Versions.CONSTRAINT_LAYOUT}"
+        "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val ANDROIDX_RECYCLER_VIEW =
         "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
