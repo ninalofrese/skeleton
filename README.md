@@ -43,7 +43,7 @@ This template is using [**GitHub Actions**](https://github.com/ninalofrese/skele
 
 There are currently the following workflows available:
 - [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum
-- [Build](.github/workflows/build.yaml) - Will run `ktlintCheck`, `testDebugUnitTest`, instrumented tests with action [reactivecircus/android-emulator-runner@v2](https://github.com/ReactiveCircus/android-emulator-runner) and build.
+- [Pre Merge](.github/workflows/pre-merge.yaml) - Will run `ktlintCheck`, `testDebugUnitTest`, instrumented tests with action [reactivecircus/android-emulator-runner@v2](https://github.com/ReactiveCircus/android-emulator-runner) and build.
 - [Release debug](.github/workflows/release-debug.yaml) - Will create, upload and release debug APK to Github.
 
 ## Contributing 🤝
