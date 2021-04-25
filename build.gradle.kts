@@ -81,23 +81,3 @@ tasks {
         }
     }
 }
-
-val deletePreviousGitHook by tasks.registering(Delete::class) {
-    group = "utils"
-    description = "Deleting previous githook"
-
-    val preCommit = "${rootProject.rootDir}/.git/hooks/pre-commit"
-    if (file(preCommit).exists()) {
-        delete(preCommit)
-    }
-}
-
-val installGitHook by tasks.registering(Copy::class) {
-    group = "utils"
-    description = "Adding githook to local working copy, this must be run manually"
-
-    dependsOn(deletePreviousGitHook)
-    from("${rootProject.rootDir}/pre-commit")
-    into("${rootProject.rootDir}/.git/hooks")
-    fileMode = 0b111101101
-}
