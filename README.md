@@ -1,12 +1,12 @@
-# skeleton 🤖
+# skeleton 💀
 
 A simple Github template that lets you create an **Android/Kotlin** project and be up and running in a **few seconds**. 
 
-This template is focused on delivering a project with **static analysis** and **continuous integration** already in place.
+This template is focused on delivering a project with **static analysis**, **modularization** and **continuous integration** already in place.
 
 ## How to use 👣
 
-Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/cortinico/kotlin-android-template/generate) button to create a new repo starting from this template.
+Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/ninalofrese/skeleton/generate) button to create a new repo starting from this template.
 
 Once created don't forget to update the:
 - [App ID](buildSrc/src/main/java/Coordinates.kt)
@@ -17,10 +17,10 @@ Once created don't forget to update the:
 ## Features 🎨
 
 - **100% Kotlin-only template**.
-- 3 Sample modules (Android app, Android library, Kotlin library).
+- Created modules: app, api with submodule, feature with submodule and library with submodules base and design.
 - 100% Gradle Kotlin DSL setup.
 - CI Setup with GitHub Actions.
-- Dependency versions managed via `buildSrc` - run `./gradlew dependencyUpdates`.
+- Dependency versions managed via `buildSrc`, with updates indicated by task `./gradlew dependencyUpdates`.
 - Kotlin Static Analysis via `ktlint` and `detekt`.
 - Issues Template (bug report + feature request).
 - Pull Request Template.
@@ -43,7 +43,8 @@ This template is using [**GitHub Actions**](https://github.com/ninalofrese/skele
 
 There are currently the following workflows available:
 - [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum
-- [Pre Merge Checks](.github/workflows/pre-merge.yaml) - Will run the `build`, `check` and `publishToMavenLocal` tasks.
+- [Build](.github/workflows/build.yaml) - Will run `ktlintCheck`, `testDebugUnitTest`, instrumented tests with action [reactivecircus/android-emulator-runner@v2](https://github.com/ReactiveCircus/android-emulator-runner) and build.
+- [Release debug](.github/workflows/release-debug.yaml) - Will create, upload and release debug APK to Github.
 
 ## Contributing 🤝
 
