@@ -61,11 +61,10 @@ fun patchReadme(repository: String, name: String) {
 
     var featuresFound = false
     val existingReadme = file("README.md").readLines().mapNotNull {
-        if (it.contains("## Features")) {
+        if (it.startsWith("## Features")) {
             featuresFound = true
         }
-        val index = it.indexOf("## Features")
-        if (!featuresFound) null else it.substring(index)
+        if (!featuresFound) null else it
     }.joinToString("\n")
 
     file("README.md").writeText(newIntro + "\n" + existingReadme)
@@ -78,7 +77,7 @@ fun srcDirectories() = projectDir.listFiles()!!
 fun changePackageName(owner: String, name: String) {
     srcDirectories().forEach {
         it.walk().filter {
-            it.isFile && (it.extension == "kt" || it.extension == "kts" || it.extension == "xml")
+            it.isFile && (it.extension == "kt" || it.extension == "kts"  || it.extension == "xml")
         }.forEach {
             it.replace("br.dev.nina.skeleton", "com.github.$owner.$name")
         }
