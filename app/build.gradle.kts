@@ -52,6 +52,10 @@ android {
 //            applicationIdSuffix = ".demo"
 //        }
 //    }
+
+    packagingOptions {
+        pickFirst("META-INF/library_release.kotlin_module")
+    }
 }
 
 dependencies {

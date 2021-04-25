@@ -67,6 +67,8 @@ subprojects {
             }
         }
     }
+
+    configurations.forEach { it.exclude("javax.annotation", "jsr250-api") }
 }
 
 tasks {
