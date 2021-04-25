@@ -65,6 +65,9 @@ jobs:
         - name: Checkout Repo
           uses: actions/checkout@v2
 
+        - name: Grant execute permission for gradlew
+          run: chmod +x gradlew
+
         - name: Cache Gradle Files
           uses: actions/cache@v2
           with:
