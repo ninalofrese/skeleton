@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.dev.nina.skeleton">
+    package="com.github.ninalofrese.skeleton">
 
     <application
         android:allowBackup="true"
