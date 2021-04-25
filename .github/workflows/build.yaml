@@ -17,9 +17,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Run Ktlint
         run: ./gradlew ktlintCheck
 
@@ -32,9 +29,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest
 
@@ -46,9 +40,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -64,9 +55,6 @@ jobs:
     steps:
         - name: Checkout Repo
           uses: actions/checkout@v2
-
-        - name: Grant execute permission for gradlew
-          run: chmod +x gradlew
 
         - name: Cache Gradle Files
           uses: actions/cache@v2

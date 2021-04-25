@@ -30,15 +30,15 @@ tasks.register("templateCleanup") {
         "com.github.$owner.$name"
     )
 
-    file("buildSrc/src/main/kotlin/publish.gradle.kts").apply {
+    file("buildSrc/src/main/kotlin/release-debug.gradle.kts").apply {
         replace("ninalofrese/skeleton", "$owner/$name")
         replace("ninalofrese/skeleton", "$owner/$name")
         replace("ninalofrese", owner)
         replace("Nina Lofrese", owner)
         // Keep the link to the original script
         replace(
-            "* https://github.com/$owner/$name/blob/master/buildSrc/src/main/kotlin/publish.gradle.kts",
-            "* https://github.com/ninalofrese/skeleton/blob/master/buildSrc/src/main/kotlin/publish.gradle.kts"
+            "* https://github.com/$owner/$name/blob/master/buildSrc/src/main/kotlin/release-debug.gradle.kts",
+            "* https://github.com/ninalofrese/skeleton/blob/master/buildSrc/src/main/kotlin/release-debug.gradle.kts"
         )
     }
 
