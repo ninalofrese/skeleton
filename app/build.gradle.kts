@@ -53,8 +53,10 @@ android {
 //        }
 //    }
 
+    configurations.forEach { it.exclude("javax.annotation", "jsr250-api") }
+
     packagingOptions {
-        pickFirst("META-INF/library_release.kotlin_module")
+        pickFirst("META-INF/metadata.jvm.kotlin_module")
     }
 }
 
