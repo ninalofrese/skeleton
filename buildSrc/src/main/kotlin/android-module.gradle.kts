@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -53,7 +55,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk7"))
 
     implementation(SupportLibs.HILT)
-    "kapt"(SupportLibs.HILT_COMPILER)
+    "kapt"(KaptLibs.HILT_COMPILER)
 }
 
 kapt {

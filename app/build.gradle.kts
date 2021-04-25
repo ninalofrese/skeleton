@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -51,6 +52,14 @@ android {
 //            applicationIdSuffix = ".demo"
 //        }
 //    }
+
+    configurations.forEach { it.exclude("javax.annotation", "jsr250-api") }
+
+    packagingOptions {
+        pickFirst("META-INF/metadata.jvm.kotlin_module")
+        pickFirst("META-INF/gradle/incremental.annotation.processors")
+        pickFirst("META-INF/metadata.kotlin_module")
+    }
 }
 
 dependencies {
@@ -59,19 +68,18 @@ dependencies {
     implementation(project(":library:base"))
     implementation(project(":library:design"))
     implementation(project(":feature:oi"))
+    implementation(project(":api:sample"))
 
-    implementation(SupportLibs.HILT)
-    "kapt"(SupportLibs.HILT_COMPILER)
+    SupportLibs.deps.forEach { implementation(it) }
+    CacheLibs.deps.forEach { implementation(it) }
+    NetworkLibs.deps.forEach { implementation(it) }
+    KaptLibs.deps.forEach { "kapt"(it) }
 
-    implementation(SupportLibs.ANDROIDX_APPCOMPAT)
-    implementation(SupportLibs.ANDROIDX_CONSTRAINT_LAYOUT)
-    implementation(SupportLibs.ANDROIDX_CORE_KTX)
+    NavigationLibs.deps.forEach { implementation(it) }
+    UiLibs.deps.forEach { implementation(it) }
 
-    testImplementation(TestingLib.JUNIT)
-
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RULES)
-    androidTestImplementation(AndroidTestingLib.ESPRESSO_CORE)
+    TestingLib.deps.forEach { testImplementation(it) }
+    AndroidTestingLib.base.forEach { androidTestImplementation(it) }
 }
 
 kapt {

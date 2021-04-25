@@ -10,20 +10,11 @@ plugins {
     cleanup
 }
 
-buildscript {
-    val kotlin_version by extra("1.4.32")
-    dependencies {
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
-}
-
 allprojects {
     group = PUBLISHING_GROUP
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 }
 
@@ -46,6 +37,7 @@ subprojects {
             exclude("**/generated/**")
             include("**/kotlin/**")
         }
+
     }
 
     detekt {
@@ -57,6 +49,26 @@ subprojects {
             }
         }
     }
+
+    /** Workaround for issue with ktlint gradle plugin v10.0.0 - will be fixed in next version */
+    configurations.named("ktlint").configure {
+        resolutionStrategy {
+            dependencySubstitution {
+                substitute(module("com.pinterest:ktlint"))
+                    .with(
+                        variant(module("com.pinterest:ktlint:0.41.0")) {
+                            attributes {
+                                attribute(
+                                    Bundling.BUNDLING_ATTRIBUTE,
+                                    objects.named(Bundling::class, Bundling.EXTERNAL)
+                                )
+                            }
+                        }
+                    )
+            }
+        }
+    }
+
 }
 
 tasks {

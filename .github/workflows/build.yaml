@@ -1,0 +1,83 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  ktlint:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Ktlint
+        run: ./gradlew ktlintCheck
+
+  unit-test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    needs: ktlint
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest
+
+  instrumented-test:
+    name: Run Instrumented Tests
+    runs-on: macos-latest
+    needs: ktlint
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [unit-test, instrumented-test]
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v2
+
+        - name: Grant execute permission for gradlew
+          run: chmod +x gradlew
+
+        - name: Cache Gradle Files
+          uses: actions/cache@v2
+          with:
+            path: |
+              ~/.gradle/caches/
+              ~/.gradle/wrapper/
+            key: cache-gradle
+
+        - name: Run Gradle tasks
+          run: ./gradlew build
+
+        - name: Stop Gradle
+          run: ./gradlew --stop

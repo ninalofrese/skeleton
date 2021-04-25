@@ -12,6 +12,7 @@ Once created don't forget to update the:
 - [App ID](buildSrc/src/main/java/Coordinates.kt)
 - AndroidManifest ([here](app/src/main/AndroidManifest.xml))
 - Package of the source files
+- Setup ktlint to run on pre-commit by running `./gradlew addKtlintFormatGitPreCommitHook `
 
 ## Features 🎨
 
