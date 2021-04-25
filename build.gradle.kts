@@ -37,6 +37,7 @@ subprojects {
             exclude("**/generated/**")
             include("**/kotlin/**")
         }
+
     }
 
     detekt {
