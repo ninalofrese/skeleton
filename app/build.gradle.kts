@@ -57,6 +57,8 @@ android {
 
     packagingOptions {
         pickFirst("META-INF/metadata.jvm.kotlin_module")
+        pickFirst("META-INF/gradle/incremental.annotation.processors")
+        pickFirst("META-INF/metadata.kotlin_module")
     }
 }
 
