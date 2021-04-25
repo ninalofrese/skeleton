@@ -68,7 +68,6 @@ subprojects {
         }
     }
 
-
 }
 
 tasks {
