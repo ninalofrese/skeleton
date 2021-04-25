@@ -1,14 +1,18 @@
-# skeleton
+# skeleton 💀
 
-![Build](https://github.com/ninalofrese/skeleton/workflows/Build/badge.svg)
+A simple Github template that lets you create an **Android/Kotlin** project and be up and running in a **few seconds**. 
 
-This is your new Kotlin Android Project! Happy hacking!
+This template is focused on delivering a project with **static analysis**, **modularization** and **continuous integration** already in place.
 
-## Template ToDo list 👣
+## How to use 👣
 
-- [x] Create a new template project.
-- [ ] Choose a [LICENSE](https://github.com/ninalofrese/skeleton/community/license/new?branch=main).
-- [ ] Code some cool apps and libraries 🚀.
+Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/ninalofrese/skeleton/generate) button to create a new repo starting from this template.
+
+Once created don't forget to update the:
+- [App ID](buildSrc/src/main/java/Coordinates.kt)
+- AndroidManifest ([here](app/src/main/AndroidManifest.xml))
+- Package of the source files
+- Setup ktlint to run on pre-commit by running `./gradlew addKtlintFormatGitPreCommitHook `
 
 ## Features 🎨
 
