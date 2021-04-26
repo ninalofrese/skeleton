@@ -1,6 +1,6 @@
 # %NAME%
 
-![Build](https://github.com/%REPOSITORY%/workflows/Build/badge.svg)
+![Pre-merge](https://github.com/%REPOSITORY%/workflows/pre-merge/badge.svg)
 
 This is your new Kotlin Android Project! Happy hacking!
 
