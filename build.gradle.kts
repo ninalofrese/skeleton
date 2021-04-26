@@ -22,7 +22,6 @@ subprojects {
     apply {
         plugin("io.gitlab.arturbosch.detekt")
         plugin("org.jlleitschuh.gradle.ktlint")
-        plugin("com.github.ben-manes.versions")
     }
 
     ktlint {
