@@ -52,4 +52,4 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 ## Credits
 
-Based on [Kotlin Android Template](https://github.com/cortinico/kotlin-android-template)
+Most of the structure on this template was based on [Kotlin Android Template](https://github.com/cortinico/kotlin-android-template). I adapted to my needs and changed modules, dependencies and workflows.
