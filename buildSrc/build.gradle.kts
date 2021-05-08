@@ -7,7 +7,7 @@ repositories {
 }
 
 object Plugins {
-    const val AGP = "4.1.3"
+    const val AGP = "4.2.0"
     const val DOKKA = "1.4.20"
     const val KOTLIN = "1.4.31"
     const val HILT = "2.35"
