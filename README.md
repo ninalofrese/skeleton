@@ -45,6 +45,7 @@ There are currently the following workflows available:
 - [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum
 - [Pre Merge](.github/workflows/pre-merge.yaml) - Will run `ktlintCheck`, `testDebugUnitTest`, instrumented tests with action [reactivecircus/android-emulator-runner@v2](https://github.com/ReactiveCircus/android-emulator-runner) and build.
 - [Release debug](.github/workflows/release-debug.yaml) - Will create, upload and release debug APK to Github.
+- [Template cleanup](.github/workflows/cleanup.yaml) - Will run when the template is used, including change in the package name, update of README and remove cleanup scripts
 
 ## Contributing 🤝
 
@@ -52,4 +53,4 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 ## Credits
 
-Most of the structure on this template was based on [Kotlin Android Template](https://github.com/cortinico/kotlin-android-template). I adapted to my needs and changed modules, dependencies and workflows.
+Most of the structure on this template is based on [Kotlin Android Template](https://github.com/cortinico/kotlin-android-template). I adapted it to my needs and changed modules, dependencies and workflows.
