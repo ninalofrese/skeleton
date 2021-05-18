@@ -30,6 +30,7 @@ subprojects {
         verbose.set(true)
         android.set(false)
         outputToConsole.set(true)
+        outputColorName.set("BLUE")
         ignoreFailures.set(false)
         enableExperimentalRules.set(true)
         filter {
