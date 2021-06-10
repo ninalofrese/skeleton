@@ -1,0 +1,39 @@
+#!/bin/bash
+
+echo "Executing ktlint..."
+
+yellow='\e[33m'
+red='\033[0;31m'
+bold=$(tput bold)
+regular=$(tput sgr0)
+
+function successSymbol {
+    	echo -e "${bold}${yellow}"
+    	echo ""
+    	echo ""
+     	echo ""
+    	echo "      Ktlint successfully executed"
+    	echo "${regular}"
+}
+
+function errorSymbol {
+        echo -e "${bold}${red}"
+    	echo ""
+    	echo ""
+    	echo ""
+    	echo "      Ktlint executed with errors, check your code"
+    	echo "${regular}"
+}
+
+./gradlew ktlintCheck
+
+RESULT=$?
+
+if  [ $RESULT == 0 ]
+then
+  successSymbol
+else
+  errorSymbol
+fi
+
+exit $RESULT
