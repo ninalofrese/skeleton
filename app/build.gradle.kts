@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Sdk.COMPILE_SDK_VERSION)
+    compileSdk = Sdk.COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdkVersion(Sdk.MIN_SDK_VERSION)
-        targetSdkVersion(Sdk.TARGET_SDK_VERSION)
+        minSdk = Sdk.MIN_SDK_VERSION
+        targetSdk = Sdk.TARGET_SDK_VERSION
 
         applicationId = AppCoordinates.APP_ID
         versionCode = AppCoordinates.APP_VERSION_CODE
@@ -22,8 +22,8 @@ android {
         viewBinding = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         getByName("release") {
@@ -35,7 +35,7 @@ android {
         }
     }
 
-    lintOptions {
+    lint {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
@@ -56,14 +56,14 @@ android {
     configurations.forEach { it.exclude("javax.annotation", "jsr250-api") }
 
     packagingOptions {
-        pickFirst("META-INF/metadata.jvm.kotlin_module")
-        pickFirst("META-INF/gradle/incremental.annotation.processors")
-        pickFirst("META-INF/metadata.kotlin_module")
+        resources.pickFirsts.add("META-INF/metadata.jvm.kotlin_module")
+        resources.pickFirsts.add("META-INF/gradle/incremental.annotation.processors")
+        resources.pickFirsts.add("META-INF/metadata.kotlin_module")
     }
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
+    implementation(kotlin("stdlib-jdk8"))
 
     implementation(project(":library:base"))
     implementation(project(":library:design"))

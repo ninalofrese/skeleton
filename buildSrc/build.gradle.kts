@@ -7,11 +7,11 @@ repositories {
 }
 
 object Plugins {
-    const val AGP = "4.2.1"
+    const val AGP = "7.0.4"
     const val DOKKA = "1.4.20"
-    const val KOTLIN = "1.5.0"
-    const val HILT = "2.35"
-    const val NAVIGATION = "2.3.5"
+    const val KOTLIN = "1.6.10"
+    const val HILT = "2.40.5"
+    const val NAVIGATION = "2.4.0-beta02"
 }
 
 dependencies {
