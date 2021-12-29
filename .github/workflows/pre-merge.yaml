@@ -43,8 +43,8 @@ jobs:
 
       - uses: actions/setup-java@v2
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '17'
+          distribution: 'temurin'
+          java-version: '11'
       - run: java -cp java HelloWorldApp
 
       - name: run tests
