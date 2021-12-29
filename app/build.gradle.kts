@@ -25,6 +25,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    setDynamicFeatures(
+        mutableSetOf(
+            Modules.Features.OI
+        )
+    )
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -65,10 +70,7 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation(project(":library:base"))
-    implementation(project(":library:design"))
-    implementation(project(":feature:oi"))
-    implementation(project(":api:sample"))
+    implementation(project(Modules.CORE))
 
     SupportLibs.deps.forEach { implementation(it) }
     CacheLibs.deps.forEach { implementation(it) }

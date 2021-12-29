@@ -12,15 +12,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/api/sample" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/oi" />
-            <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/library/base" />
-            <option value="$PROJECT_DIR$/library/design" />
+            <option value="$PROJECT_DIR$/commons" />
+            <option value="$PROJECT_DIR$/commons/ui" />
+            <option value="$PROJECT_DIR$/commons/views" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/oi" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/sample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

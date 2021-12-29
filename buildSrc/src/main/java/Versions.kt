@@ -5,6 +5,7 @@ object Sdk {
 }
 
 object Versions {
+    const val ANDROID_DESUGARING = "1.1.5"
     const val ANDROIDX_TEST_EXT = "1.1.2"
     const val ANDROIDX_TEST = "1.3.0"
     const val APPCOMPAT = "1.4.0"

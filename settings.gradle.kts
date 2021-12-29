@@ -1,11 +1,12 @@
 pluginManagement {
     resolutionStrategy {
         eachPlugin {
-            if (requested.id.id == "com.android.library") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
-            }
-            if (requested.id.id == "com.android.application") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
+            when (requested.id.id) {
+                "com.android.library",
+                "com.android.application",
+                "com.android.dynamic-feature" -> {
+                    useModule("com.android.tools.build:gradle:${requested.version}")
+                }
             }
         }
     }
@@ -20,8 +21,11 @@ rootProject.name = ("skeleton")
 
 include(
     ":app",
-    ":library:base",
-    ":library:design",
-    ":api:sample",
-    ":feature:oi"
+    ":core",
+    ":features:oi",
+    ":commons:ui",
+    ":commons:views",
+    ":libraries:sample"
 )
+
+rootProject.buildFileName = "build.gradle.kts"

@@ -1,6 +1,7 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
 object SupportLibs {
+    const val ANDROID_DESUGARING = "com.android.tools:desugar_jdk_libs:${Versions.ANDROID_DESUGARING}"
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -12,6 +13,7 @@ object SupportLibs {
 
     val coroutines = listOf(COROUTINES, COROUTINES_ANDROID, COROUTINES_REACTIVE)
     val deps = listOf(
+        ANDROID_DESUGARING,
         ANDROIDX_APPCOMPAT,
         ANDROIDX_CORE_KTX,
         HILT,
@@ -49,8 +51,10 @@ object NavigationLibs {
         "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
     const val ANDROIDX_NAVIGATION_UI =
         "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
+    const val ANDROIDX_NAVIGATION_DYNAMIC =
+        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.NAVIGATION}"
 
-    val deps = listOf(ANDROIDX_NAVIGATION, ANDROIDX_NAVIGATION_UI)
+    val deps = listOf(ANDROIDX_NAVIGATION, ANDROIDX_NAVIGATION_UI, ANDROIDX_NAVIGATION_DYNAMIC)
 }
 
 object UiLibs {

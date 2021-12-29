@@ -19,8 +19,12 @@ android {
         viewBinding = true
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildTypes {
         getByName("release") {
@@ -54,8 +58,10 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation(SupportLibs.HILT)
-    "kapt"(KaptLibs.HILT_COMPILER)
+    SupportLibs.deps.forEach { implementation(it) }
+    UiLibs.deps.forEach { implementation(it) }
+
+    kapt(KaptLibs.HILT_COMPILER)
 }
 
 kapt {
