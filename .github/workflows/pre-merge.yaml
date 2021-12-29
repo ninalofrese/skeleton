@@ -45,7 +45,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-      - run: java -cp java HelloWorldApp
+      - run: java -version
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
