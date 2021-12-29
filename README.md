@@ -12,6 +12,7 @@ Once created don't forget to update the:
 - [App ID](buildSrc/src/main/java/Coordinates.kt)
 - AndroidManifest ([here](app/src/main/AndroidManifest.xml))
 - Package of the source files
+- As you add more code into the packages, delete the `.gitkeep` files, that exists only as a placeholder for empty folders in git.
 
 ## Features 🎨
 
