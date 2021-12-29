@@ -30,6 +30,22 @@ This template is using [**Gradle Kotlin DSL**](https://docs.gradle.org/current/u
 
 Dependencies are centralized inside the [Dependencies.kt](buildSrc/src/main/java/Dependencies.kt) file in the `buildSrc` folder. This provides convenient auto-completion when writing your gradle files.
 
+## Architecture
+
+This template can be adjusted to your project needs, but was created aiming Clean Architecture by Feature Modularization.
+
+- `:app`: Main application module, needed to create the App Bundle. Depends on `:core`, and indirectly on `:features` by dynamic features.
+- `:core`: Used for business layers, such as data, domain and interactors. Can become a _kotlin-library_ module if Room is not used or is replaced by SQL Delight or else. Can depend on `libraries`.
+- `:features`: Used for framework layers, such as presentation and UI. Is a `dynamic-feature` module, so it can be downloaded independently from the base application module. Depends on `:app`, `:core`, `:commons` and some specific `:libraries` 
+- `:commons`: Contains code and resources which are shared between feature modules. `:commons:views` can hold design and views elements, such as Custom Views; and `:commons:ui` can hold framework bases, reusable classes and view manipulation, such as Base Adapters, LiveData, Extensions, etc. Can depend on `libraries`.
+- `:libraries`: Contains utilities that can be used by different modules, such as test utils, Firebase sdk implementations or else. It doesn't depend on any other modules.
+
+The make the creation of new modules easier, there are some common configuration files: 
+
+- [android-module.gradle.kts](buildSrc/src/main/kotlin/android-module.gradle.kts)
+- [kotlin-module.gradle.kts](buildSrc/src/main/kotlin/kotlin-module.gradle.kts)
+- [dynamic-module.gradle.kts](buildSrc/src/main/kotlin/dynamic-module.gradle.kts)
+
 ## Static Analysis 🔍
 
 This template is using [**ktlint**](https://github.com/pinterest/ktlint) with the [ktlint-gradle](https://github.com/jlleitschuh/ktlint-gradle) plugin to format your code. To reformat all the source code as well as the buildscript you can run the `ktlintFormat` gradle task.
