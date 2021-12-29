@@ -41,7 +41,7 @@ This template can be adjusted to your project needs, but was created aiming Clea
 - `:commons`: Contains code and resources which are shared between feature modules. `:commons:views` can hold design and views elements, such as Custom Views; and `:commons:ui` can hold framework bases, reusable classes and view manipulation, such as Base Adapters, LiveData, Extensions, etc. Can depend on `libraries`.
 - `:libraries`: Contains utilities that can be used by different modules, such as test utils, Firebase sdk implementations or else. It doesn't depend on any other modules.
 
-The make the creation of new modules easier, there are some common configuration files: 
+To make the creation of new modules easier, there are some common configuration files: 
 
 - [android-module.gradle.kts](buildSrc/src/main/kotlin/android-module.gradle.kts)
 - [kotlin-module.gradle.kts](buildSrc/src/main/kotlin/kotlin-module.gradle.kts)
