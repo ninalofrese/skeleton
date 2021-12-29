@@ -1,7 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
 object SupportLibs {
-    const val ANDROID_DESUGARING = "com.android.tools:desugar_jdk_libs:${Versions.ANDROID_DESUGARING}"
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -13,7 +12,6 @@ object SupportLibs {
 
     val coroutines = listOf(COROUTINES, COROUTINES_ANDROID, COROUTINES_REACTIVE)
     val deps = listOf(
-        ANDROID_DESUGARING,
         ANDROIDX_APPCOMPAT,
         ANDROIDX_CORE_KTX,
         HILT,
@@ -28,6 +26,10 @@ object KaptLibs {
     const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
 
     val deps = listOf(HILT_COMPILER, ROOM_COMPILER)
+}
+
+object DesugaringLibs {
+    const val ANDROID_DESUGARING = "com.android.tools:desugar_jdk_libs:${Versions.ANDROID_DESUGARING}"
 }
 
 object NetworkLibs {

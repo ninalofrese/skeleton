@@ -58,6 +58,8 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 
+    coreLibraryDesugaring(DesugaringLibs.ANDROID_DESUGARING)
+
     SupportLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
 
