@@ -24,7 +24,7 @@ jobs:
       # Install pre-commit hook
       - name: Install pre-commit hook
         run: |
-          git update-index --chmod +x ./hooks/setup.sh
+          git update-index --chmod=+x ./hooks/setup.sh
           ./hooks/setup.sh
       # Commit modified files
       - name: Commit files
