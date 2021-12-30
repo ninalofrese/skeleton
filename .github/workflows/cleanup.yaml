@@ -21,12 +21,6 @@ jobs:
       # Cleanup project
       - name: Cleanup
         run: ./gradlew templateCleanup
-      # Install pre-commit hook
-      - name: Install pre-commit hook
-        run: |
-          cd ./hooks
-          git update-index --chmod=+x setup.sh
-          setup.sh
       # Commit modified files
       - name: Commit files
         run: |

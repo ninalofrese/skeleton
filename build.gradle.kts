@@ -8,7 +8,8 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version BuildPluginsVersion.DETEKT
     id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT
     id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
-    cleanup
+    id("plugins.git-hooks")
+    id("plugins.cleanup")
 }
 
 allprojects {

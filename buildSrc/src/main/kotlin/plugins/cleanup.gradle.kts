@@ -1,3 +1,5 @@
+package plugins
+
 /**
  * A plugin to cleanup the template after it has been forked. It register a single `templateCleanup`
  * task that is designed to run from CI. It:
