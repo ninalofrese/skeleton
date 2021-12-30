@@ -51,25 +51,6 @@ subprojects {
         }
     }
 
-    /** Workaround for issue with ktlint gradle plugin v10.0.0 - will be fixed in next version */
-    configurations.named("ktlint").configure {
-        resolutionStrategy {
-            dependencySubstitution {
-                substitute(module("com.pinterest:ktlint"))
-                    .with(
-                        variant(module("com.pinterest:ktlint:0.41.0")) {
-                            attributes {
-                                attribute(
-                                    Bundling.BUNDLING_ATTRIBUTE,
-                                    objects.named(Bundling::class, Bundling.EXTERNAL)
-                                )
-                            }
-                        }
-                    )
-            }
-        }
-    }
-
 }
 
 tasks {
