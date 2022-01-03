@@ -20,6 +20,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -45,6 +46,10 @@ android {
 
         isWarningsAsErrors = true
         isAbortOnError = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "${Versions.COMPOSE}"
     }
 
     // Use this block to configure different flavors
@@ -81,6 +86,7 @@ dependencies {
 
     NavigationLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
+    ComposeLibs.deps.forEach { implementation(it) }
 
     TestingLib.deps.forEach { testImplementation(it) }
     AndroidTestingLib.base.forEach { androidTestImplementation(it) }

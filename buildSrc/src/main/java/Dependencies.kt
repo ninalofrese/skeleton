@@ -80,6 +80,24 @@ object UiLibs {
     )
 }
 
+object ComposeLibs {
+    const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
+    const val COMPOSE_APPCOMPAT = "com.google.accompanist:accompanist-appcompat-theme:${Versions.COMPOSE_APPCOMPAT}"
+    const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
+    const val COMPOSE_ANIMATION = "androidx.compose.animation:animation:${Versions.COMPOSE}"
+    const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
+    const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.LIVEDATA}"
+
+    val deps = listOf(
+        COMPOSE_ACTIVITY,
+        COMPOSE_APPCOMPAT,
+        COMPOSE_ANIMATION,
+        COMPOSE_MATERIAL,
+        COMPOSE_UI_TOOLING,
+        COMPOSE_VIEWMODEL
+    )
+}
+
 object TestingLib {
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
     const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
@@ -101,6 +119,7 @@ object AndroidTestingLib {
     const val ROOM = "androidx.room:room-testing:${Versions.ROOM}"
     const val NAVIGATION = "androidx.navigation:navigation-testing:${Versions.NAVIGATION}"
     const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.ROBOELECTRIC}"
+    const val COMPOSE = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE}"
 
     val base = listOf(
         ANDROIDX_TEST_RULES,
@@ -111,6 +130,7 @@ object AndroidTestingLib {
         HILT,
         HILT_COMPILER,
         NAVIGATION,
-        ROBOELECTRIC
+        ROBOELECTRIC,
+        COMPOSE
     )
 }

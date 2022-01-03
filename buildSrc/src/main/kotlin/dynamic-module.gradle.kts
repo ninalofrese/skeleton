@@ -16,6 +16,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -39,6 +40,9 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "${Versions.COMPOSE}"
+    }
 }
 
 dependencies {
@@ -49,6 +53,7 @@ dependencies {
 
     SupportLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
+    ComposeLibs.deps.forEach { implementation(it) }
 
     kapt(KaptLibs.HILT_COMPILER)
 }

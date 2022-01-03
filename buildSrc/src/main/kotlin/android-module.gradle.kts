@@ -17,6 +17,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -43,6 +44,9 @@ android {
         isAbortOnError = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = "${Versions.COMPOSE}"
+    }
     // Use this block to configure different flavors
 //    flavorDimensions("version")
 //    productFlavors {
@@ -64,6 +68,7 @@ dependencies {
 
     SupportLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
+    ComposeLibs.deps.forEach { implementation(it) }
 
     kapt(KaptLibs.HILT_COMPILER)
 }
