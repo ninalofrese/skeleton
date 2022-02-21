@@ -36,9 +36,11 @@ object NetworkLibs {
     const val OK_HTTP = "com.squareup.okhttp3:okhttp:${Versions.OK_HTTP}"
     const val OK_HTTP_LOGGER = "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP}"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+    const val RETROFIT_MOSHI = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
     const val MOSHI = "com.squareup.moshi:moshi:${Versions.MOSHI}"
+    const val MOSHI_KTX = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
 
-    val deps = listOf(RETROFIT, OK_HTTP, OK_HTTP_LOGGER, MOSHI)
+    val deps = listOf(RETROFIT, RETROFIT_MOSHI, OK_HTTP, OK_HTTP_LOGGER, MOSHI, MOSHI_KTX)
 }
 
 object CacheLibs {
