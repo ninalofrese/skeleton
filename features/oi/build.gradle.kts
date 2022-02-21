@@ -1,3 +1,3 @@
 plugins {
-    id("dynamic-module")
+    id("commons.dynamic-module")
 }

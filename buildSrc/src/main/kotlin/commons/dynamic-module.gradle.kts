@@ -1,5 +1,7 @@
+package commons
+
 plugins {
-    id("com.android.library")
+    id("com.android.dynamic-feature")
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
@@ -11,22 +13,24 @@ android {
 
     defaultConfig {
         minSdk = Sdk.MIN_SDK_VERSION
-        targetSdk = Sdk.TARGET_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildFeatures {
         viewBinding = true
         compose = true
     }
+
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -34,6 +38,18 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+
+    sourceSets {
+        getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+        getByName("test") {
+            java.srcDir("src/test/kotlin")
+        }
+        getByName("androidTest") {
+            java.srcDir("src/androidTest/kotlin")
         }
     }
 
@@ -47,28 +63,24 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "${Versions.COMPOSE}"
     }
-    // Use this block to configure different flavors
-//    flavorDimensions("version")
-//    productFlavors {
-//        create("full") {
-//            dimension = "version"
-//            applicationIdSuffix = ".full"
-//        }
-//        create("demo") {
-//            dimension = "version"
-//            applicationIdSuffix = ".demo"
-//        }
-//    }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-
-    coreLibraryDesugaring(DesugaringLibs.ANDROID_DESUGARING)
+    implementation(project(Modules.APP))
+    implementation(project(Modules.CORE))
+    implementation(project(Modules.Commons.UI))
+    implementation(project(Modules.Commons.VIEWS))
 
     SupportLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
     ComposeLibs.deps.forEach { implementation(it) }
+
+    TestingLib.deps.forEach { testImplementation(it) }
 
     kapt(KaptLibs.HILT_COMPILER)
 }

@@ -1,5 +1,5 @@
 plugins {
-    id("android-module")
+    id("commons.android-module")
 }
 dependencies {
     NetworkLibs.deps.forEach { implementation(it) }

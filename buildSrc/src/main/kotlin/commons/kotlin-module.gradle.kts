@@ -1,3 +1,5 @@
+package commons
+
 plugins {
     id("java-library")
     kotlin("jvm")

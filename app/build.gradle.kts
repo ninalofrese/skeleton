@@ -65,6 +65,23 @@ android {
 //        }
 //    }
 
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
+    }
+
+    sourceSets {
+        getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+        getByName("test") {
+            java.srcDir("src/test/kotlin")
+        }
+        getByName("androidTest") {
+            java.srcDir("src/androidTest/kotlin")
+        }
+    }
+
     configurations.forEach { it.exclude("javax.annotation", "jsr250-api") }
 
     packagingOptions {
@@ -80,16 +97,9 @@ dependencies {
     implementation(project(Modules.CORE))
 
     SupportLibs.deps.forEach { implementation(it) }
-    CacheLibs.deps.forEach { implementation(it) }
-    NetworkLibs.deps.forEach { implementation(it) }
-    KaptLibs.deps.forEach { "kapt"(it) }
+    "kapt"(KaptLibs.HILT_COMPILER)
 
     NavigationLibs.deps.forEach { implementation(it) }
-    UiLibs.deps.forEach { implementation(it) }
-    ComposeLibs.deps.forEach { implementation(it) }
-
-    TestingLib.deps.forEach { testImplementation(it) }
-    AndroidTestingLib.base.forEach { androidTestImplementation(it) }
 }
 
 kapt {

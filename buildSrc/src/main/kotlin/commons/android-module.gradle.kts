@@ -1,5 +1,7 @@
+package commons
+
 plugins {
-    id("com.android.dynamic-feature")
+    id("com.android.library")
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
@@ -11,6 +13,7 @@ android {
 
     defaultConfig {
         minSdk = Sdk.MIN_SDK_VERSION
+        targetSdk = Sdk.TARGET_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -19,6 +22,7 @@ android {
         compose = true
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -34,26 +38,42 @@ android {
             )
         }
     }
+
+    sourceSets {
+        getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+        getByName("test") {
+            java.srcDir("src/test/kotlin")
+        }
+    }
+
     lint {
         disable("ObsoleteLintCustomCheck")
 
         isWarningsAsErrors = true
         isAbortOnError = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "${Versions.COMPOSE}"
+    }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
     }
 }
 
 dependencies {
-    implementation(project(Modules.APP))
-    implementation(project(Modules.CORE))
-    implementation(project(Modules.Commons.UI))
-    implementation(project(Modules.Commons.VIEWS))
+    implementation(kotlin("stdlib-jdk8"))
+
+    coreLibraryDesugaring(DesugaringLibs.ANDROID_DESUGARING)
 
     SupportLibs.deps.forEach { implementation(it) }
     UiLibs.deps.forEach { implementation(it) }
     ComposeLibs.deps.forEach { implementation(it) }
+    TestingLib.deps.forEach { testImplementation(it) }
 
     kapt(KaptLibs.HILT_COMPILER)
 }

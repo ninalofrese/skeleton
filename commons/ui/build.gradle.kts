@@ -1,3 +1,3 @@
 plugins {
-    id("android-module")
+    id("commons.android-module")
 }
