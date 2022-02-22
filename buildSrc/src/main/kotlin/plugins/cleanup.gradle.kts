@@ -27,7 +27,7 @@ tasks.register("templateCleanup") {
         "rootProject.name = (\"skeleton\")",
         "rootProject.name = (\"$name\")"
     )
-    file("buildSrc/src/main/java/Coordinates.kt").replace(
+    file("buildSrc/src/main/kotlin/Coordinates.kt").replace(
         "br.dev.nina.skeleton",
         "com.github.$owner.$name"
     )
