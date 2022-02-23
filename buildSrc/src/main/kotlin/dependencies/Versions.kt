@@ -28,9 +28,9 @@ object Versions {
     const val COROUTINES = "1.6.0"
     const val NAVIGATION = "2.4.0-beta02"
     const val ROBOELECTRIC = "4.7.3"
-    const val COMPOSE_ACTIVITY = "1.3.1"
-    const val COMPOSE_APPCOMPAT = "0.16.0"
-    const val COMPOSE = "1.0.5"
+    const val COMPOSE_ACTIVITY = "1.5.0-alpha02"
+    const val COMPOSE_APPCOMPAT = "0.24.2-alpha"
+    const val COMPOSE = "1.2.0-alpha03"
 }
 
 object BuildPluginsVersion {

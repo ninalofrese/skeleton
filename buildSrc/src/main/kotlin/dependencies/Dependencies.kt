@@ -85,17 +85,21 @@ object UiLibs {
 object ComposeLibs {
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
     const val COMPOSE_APPCOMPAT = "com.google.accompanist:accompanist-appcompat-theme:${Versions.COMPOSE_APPCOMPAT}"
+    const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
+    const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
+    const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
     const val COMPOSE_ANIMATION = "androidx.compose.animation:animation:${Versions.COMPOSE}"
-    const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
     const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.LIVEDATA}"
 
     val deps = listOf(
+        COMPOSE_UI,
+        COMPOSE_UI_TOOLING,
+        COMPOSE_FOUNDATION,
+        COMPOSE_MATERIAL,
         COMPOSE_ACTIVITY,
         COMPOSE_APPCOMPAT,
         COMPOSE_ANIMATION,
-        COMPOSE_MATERIAL,
-        COMPOSE_UI_TOOLING,
         COMPOSE_VIEWMODEL
     )
 }

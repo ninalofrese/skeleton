@@ -26,6 +26,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
     setDynamicFeatures(
         mutableSetOf(
             Modules.Features.OI
@@ -97,6 +102,7 @@ dependencies {
     implementation(project(Modules.CORE))
 
     SupportLibs.deps.forEach { implementation(it) }
+    ComposeLibs.deps.forEach { implementation(it) }
     "kapt"(KaptLibs.HILT_COMPILER)
 
     NavigationLibs.deps.forEach { implementation(it) }
